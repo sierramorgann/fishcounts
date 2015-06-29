@@ -34,6 +34,85 @@ var axis = data.forEach(function() {
 
     console.log(data)
 
+    var fish7 = d3.select("div", "fish7").selectAll()
+        .data(data)
+        .enter()
+        .append("div").attr("class", "allcoho")
+        .style("float", "left")
+        .style("padding", "1px")
+        .style("margin-left", "1px")
+        .style("background-color", "green")
+        .style("height", function(d) {
+            var barHeight = d.allCoho * 0.1;
+            return barHeight + "px";
+        });
+
+    var fish8 = d3.select("div", "fish8").selectAll()
+        .data(data)
+        .enter()
+        .append("div").attr("class", "adultcoho")
+        .style("float", "left")
+        .style("padding", "1px")
+        .style("margin-left", "1px")
+        .style("background-color", "rgb(14,255,233)")
+        .style("height", function(d) {
+            var barHeight = d.adultCoho * 0.1;
+            return barHeight + "px";
+        });
+
+    var fish9 = d3.select("div", "fish9").selectAll()
+        .data(data)
+        .enter()
+        .append("div").attr("class", "jackcoho")
+        .style("float", "left")
+        .style("padding", "1px")
+        .style("margin-left", "1px")
+        .style("background-color", "rgb(3,64,58")
+        .style("height", function(d) {
+            var barHeight = d.jackCoho * 0.1;
+            return barHeight + "px";
+        });
+
+            var fish4 = d3.select("div", "fish4").selectAll()
+        .data(data)
+        .enter()
+        .append("div").attr("class", "allsteelhead")
+        .style("float", "left")
+        .style("padding", "1px")
+        .style("margin-left", "1px")
+        .style("background-color", "rgb(0,191,156)")
+        .style("height", function(d) {
+            var barHeight = d.allSteelhead * 0.1;
+            return barHeight + "px";
+        });
+
+    var fish5 = d3.select("div", "fish5").selectAll()
+        .data(data)
+        .enter()
+        .append("div").attr("class", "clippedsteelhead ")
+        .style("float", "left")
+        .style("padding", "1px")
+        .style("margin-left", "1px")
+        .style("background-color", "teal")
+        .style("height", function(d) {
+            var barHeight = d.clippedSteelhead * 0.1;
+            return barHeight + "px";
+        });
+
+
+    var fish6 = d3.select("div", "fish6").selectAll()
+        .data(data)
+        .enter()
+        .append("div").attr("class", "unclippedsteelhead")
+        .style("float", "left")
+        .style("padding", "1px")
+        .style("margin-left", "1px")
+        .style("background-color", "rgb(0,64,52")
+        .style("height", function(d) {
+            var barHeight = d.unclippedSteelhead * 0.1;
+            return barHeight + "px";
+        });
+
     var fish1 = d3.select("div", "fish1").selectAll()
         .data(data)
         .enter()
@@ -55,6 +134,7 @@ var axis = data.forEach(function() {
 
             width = 300 - margin.left - margin.right,
             height = 80 - margin.top - margin.bottom;
+
 
         var x = d3.time.scale()
             .domain([new Date(2015, 0, 1), new Date(2015, 11, 31)])
@@ -107,87 +187,6 @@ var axis = data.forEach(function() {
         .style("background-color", "rgb(130,255,232)")
         .style("height", function(d) {
             var barHeight = d.jackChinook * 0.1;
-            return barHeight + "px";
-        });
-
-    var fish4 = d3.select("div", "fish4").selectAll()
-        .data(data)
-        .enter()
-        .append("div").attr("class", "allsteelhead")
-        .style("float", "left")
-        .style("padding", "1px")
-        .style("margin-left", "1px")
-        .style("background-color", "rgb(0,191,156)")
-        .style("height", function(d) {
-            var barHeight = d.allSteelhead * 0.1;
-            return barHeight + "px";
-        });
-
-    var fish5 = d3.select("div", "fish5").selectAll()
-        .data(data)
-        .enter()
-        .append("div").attr("class", "clippedsteelhead ")
-        .style("float", "left")
-        .style("padding", "1px")
-        .style("margin-left", "1px")
-        .style("background-color", "teal")
-        .style("height", function(d) {
-            var barHeight = d.clippedSteelhead * 0.1;
-            return barHeight + "px";
-        });
-
-
-    var fish6 = d3.select("div", "fish6").selectAll()
-        .data(data)
-        .enter()
-        .append("div").attr("class", "unclippedsteelhead")
-        .style("float", "left")
-        .style("padding", "1px")
-        .style("margin-left", "1px")
-        .style("background-color", "rgb(0,64,52")
-        .style("height", function(d) {
-            var barHeight = d.unclippedSteelhead * 0.1;
-            return barHeight + "px";
-        });
-
-
-    var fish7 = d3.select("div", "fish7").selectAll()
-        .data(data)
-        .enter()
-        .append("div").attr("class", "allcoho")
-        .style("float", "left")
-        .style("padding", "1px")
-        .style("margin-left", "1px")
-        .style("background-color", "green")
-        .style("height", function(d) {
-            var barHeight = d.allCoho * 0.1;
-            return barHeight + "px";
-        });
-
-    var fish8 = d3.select("div", "fish8").selectAll()
-        .data(data)
-        .enter()
-        .append("div").attr("class", "adultcoho")
-        .style("float", "left")
-        .style("padding", "1px")
-        .style("margin-left", "1px")
-        .style("background-color", "rgb(14,255,233)")
-        .style("height", function(d) {
-            var barHeight = d.adultCoho * 0.1;
-            return barHeight + "px";
-        });
-
-    var fish9 = d3.select("div", "fish9").selectAll()
-        .data(data)
-        .enter()
-        .append("div").attr("class", "jackcoho")
-        .style("float", "left")
-        .style("padding", "1px")
-        .style("margin-left", "1px")
-        .style("background-color", "rgb(3,64,58")
-        .style("z-index", "10")
-        .style("height", function(d) {
-            var barHeight = d.jackCoho * 0.1;
             return barHeight + "px";
         });
 
