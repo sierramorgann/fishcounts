@@ -7,110 +7,86 @@
     <script src="js/d3.min.js" charset="utf-8"></script>
     <script src="js/jQuery/jquery-2.1.1.js" charset="utf-8"></script>
     <script src="js/script.js" charset="utf-8"></script> 
-
+    <script type="text/javascript" src="js/data.js" charset="utf-8"></script>
   <style>
-    svg {
-      font-size: 5px;
-    }
+.axis path,
+.axis line {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+}
+
+.axis text {
+    font-family: sans-serif;
+    font-size: 11px;
+}
+
+body {
+  height: 0;
+}
+
+.fish1 {
+  margin-bottom: 390px;
+  -webkit-transform: rotateX(-180deg);  Chrome, Safari, Opera 
+  transform: rotateX(-180deg);
+}
+
+[data-tooltip] {
+    position: relative;
+    z-index: 9999;
+    cursor: pointer;
+    -webkit-transform: rotateX(-180deg);  Chrome, Safari, Opera 
+    transform: rotateX(-180deg);
+}
+
+[data-tooltip]:before, [data-tooltip]:after {
+    visibility: hidden;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    pointer-events: none;
+}
+/* Position tooltip above the element */
+[data-tooltip]:before {
+    position: absolute;
+    bottom: 178px;
+    margin-left: -550%;
+    padding: 3px;
+    width: 85px;
+    border-radius: 2px;
+    background-color: rgb(0,0,0);
+    background-color: rgb(0,0,0);
+    color: rgb(255,255,255);
+    content: attr(data-tooltip);
+    text-align: left;
+    font-family: helvetica;
+    font-size: 10px;
+    line-height: 1.2;
+}
+[data-tooltip]:after {
+    position: absolute;
+    right: 1%;
+    box-sizing: border-box;
+    display: inline; 
+    bottom: 173px; 
+    width: 50%;
+    border-top: 7px solid rgb(0,0,0);
+    border-top: 7px solid rgb(0,0,0);
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    content:" ";
+}
+/* Show tooltip content on hover */
+[data-tooltip]:hover:before, [data-tooltip]:hover:after {
+    visibility: visible;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+}
   </style>  
      
 </head>
 <body>
-  <div class="fish1" transform="rotate(-90)"></div>
+  <div class="fish1"></div>
 </body>
-</html> 
-<!-- <!DOCTYPE html>
-<meta charset="utf-8">
-<style>
-
-.bar {
-  fill: steelblue;
-}
-
-.bar:hover {
-  fill: brown;
-}
-
-.axis {
-  font: 10px sans-serif;
-}
-
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
-
-.x.axis path {
-  display: none;
-}
-
-</style>
-<body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
-<script>
-var margin = {top: 20, right: 20, bottom: 30, left: 40},
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
-
-var x = d3.scale.ordinal()
-    .rangeRoundBands([0, width], .1);
-
-var y = d3.scale.linear()
-    .range([height, 0]);
-
-var xAxis = d3.svg.axis()
-    .scale(x)
-    .orient("bottom");
-
-var yAxis = d3.svg.axis()
-    .scale(y)
-    .orient("left")
-    .ticks(5);
-
-var svg = d3.select("body").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-d3.csv("data.csv", type, function(error, data) {
-  if (error) throw error;
-
-  x.domain(data.map(function(d) { return d.date; }));
-  y.domain([0, d3.max(data, function(d) { return d.allChinook; })]);
-
-  svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(xAxis);
-
-  svg.append("g")
-      .attr("class", "y axis")
-      .call(yAxis)
-      .append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", "1em")
-      .style("text-anchor", "end")
-      .text("Chinook logged");
-
-  svg.selectAll(".bar")
-      .data(data)
-      .enter().append("rect")
-      .attr("class", "bar")
-      .attr("x", function(d) { return x(d.date); })
-      .attr("width", x.rangeBand())
-      .attr("y", function(d) { return y(d.allChinook); })
-      .attr("height", function(d) { return height - y(d.allChinook); });
-
-      console.log(data)
-});
-
-function type(d) {
-  d.allChinook = +d.allChinook;
-  return d;
-}
-
-</script>
+</html>
